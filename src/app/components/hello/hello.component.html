@@ -1,0 +1,42 @@
+<div class="container custom-container">
+    <div class="row">
+        <div class="name">
+            <h1>Hello wayfarer!</h1><br>
+            <p>Fill in information about yourself.</p>
+            <div class="form-name-block">
+                <form [formGroup]="formHello" (ngSubmit)="onSubmit()">
+                    <div class="control">
+                        <label class="required" for="name">Name:</label>
+                        <input
+                            formControlName="name"
+                            id="name"
+                            type="text"
+                        >
+                        <div *ngIf="nameControl.invalid && nameControl.touched" class="validation">
+                            <small *ngIf="!nameControl.value">Name field is required.</small>
+                            <small *ngIf="nameControl.invalid">The name must be at least 3 characters and no more than 20</small>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <label class="required" for="character_type">Character type:</label>
+                        <select
+                            formControlName="characterType"
+                            name="characterType"
+                            id="character_type">
+                            <option value="Knight">Knight</option>
+                            <option value="Archer">Archer</option>
+                            <option value="Mage">Mage</option>
+                            <option value="Druid">Druid</option>
+                        </select>
+                        <div *ngIf="characterTypeControl.invalid && characterTypeControl.touched" class="validation">
+                            <small *ngIf="!characterTypeControl.value">Character type field is required.</small>
+                        </div>
+                    </div>
+                    <div class="btn-block">
+                        <button class="btn-send" type="submit">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

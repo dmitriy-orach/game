@@ -1,0 +1,13 @@
+<div class="container custom-container">
+    <div class="row">
+        <div class="characters">
+            <div *ngFor="let character of characters" class="character" (click)="onClick(character)">
+                <h3>{{character.name}}</h3>
+                <p>Type: {{character.hero}}</p>
+                <p>Level: {{character.level}}</p>
+                <p>Health: {{character.hp}}</p>
+                <p>Damage: {{character.damage}}</p>
+            </div>
+        </div>
+    </div>
+</div>
